@@ -345,8 +345,9 @@
       it('should handle iterators that work with a sorted array', function() {
         var iterator = function(value) { return value === 1; };
         var numbers = [1, 2, 2, 3, 4, 4];
+        var isSorted = true;
 
-        expect(_.uniq(FILL_ME_IN)).to.eql([1, 2]);
+        expect(_.uniq(numbers, isSorted, iterator)).to.eql([1, 2]);
       });
 
       it('should produce a brand new array instead of modifying the input array', function() {
@@ -461,7 +462,7 @@
       it('should not mutate the input array', function() {
         var input = [1,2,3,4,5];
         var result = _.reduce(input, function(memo, item) {return item;});
-        
+
         /*
          * Mutation of inputs should be avoided without good justification otherwise
          * as it can often lead to hard to find bugs and confusing code!

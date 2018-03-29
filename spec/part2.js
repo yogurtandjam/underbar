@@ -144,11 +144,11 @@
       });
 
       it('should fail for a set containing no matching values', function() {
-        expect(_.some([1, 11, 29], isEven)).to.be.false;
+        expect(_.some([1, 9, 13], isEven)).to.be.false;
       });
 
       it('should pass for a collection containing one matching value', function() {
-        expect(_.some([1, 10, 29], isEven)).to.be.true;
+        expect(_.some([1, 11, 28], isEven)).to.be.true;
       });
 
       it('should cast the result to a boolean', function() {
@@ -440,7 +440,7 @@
         memoSpy(10);
         expect(spy).to.have.been.calledOnce;
       });
-      
+
       it('should not run the memoized function twice when given a reference type as an argument', function() {
         // Be careful how you are checking if a set of arguments has been passed in already
         var spy = sinon.spy(function() { return 'Dummy output'; });
